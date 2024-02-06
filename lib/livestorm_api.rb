@@ -188,15 +188,24 @@ class LivestormApi
   end
 
   def notify_remaining_ratelimit(response)
-    remaining = response.headers[:ratelimit_monthly_remaining].to_f
-    total = response.headers[:ratelimit_monthly_limit].to_f
-
-    if remaining.zero? && total.zero?
-      Logger.new(STDOUT).warn("Livestorm perodic limit is unidentified.  remaining: #{remaining}, total: #{total}.")
-    elsif (remaining / total) < 0.2
-      Logger.new(STDOUT).warn("Livestorm periodic limit nearly reached!")
+    message = get_log_message response
+    if message
+      if defined?(Honeybadger)
+        Honeybadger.notify(message)
+      else
+        Logger.new(STDOUT).warn(message)
+      end
     end
 
     response
+  end
+
+  def get_log_message response
+    remaining = response.headers[:ratelimit_monthly_remaining].to_f
+    total = response.headers[:ratelimit_monthly_limit].to_f
+
+    return "Livestorm perodic limit is unidentified.  remaining: #{remaining}, total: #{total}." if remaining.zero? && total.zero?
+
+    "Livestorm periodic limit nearly reached!" if (remaining / total) < 0.2
   end
 end
