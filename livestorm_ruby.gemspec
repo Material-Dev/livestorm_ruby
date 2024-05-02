@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "livestorm_ruby"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.authors       = ["harsh-materialplusio"]
   spec.email         = ["harshwardhan.rathore@materialplus.io"]
   spec.summary       = %q{Livestorm API methods for Rails}
@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = Dir['{lib}/**/*'] + ['README.md', 'LICENSE.md']
-  
+
   spec.add_dependency 'rest-client'
 
   spec.add_development_dependency 'minitest'
