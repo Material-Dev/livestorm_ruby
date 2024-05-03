@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "livestorm_ruby"
-  spec.version       = "0.2.0"
+  spec.version       = "0.3.0"
   spec.authors       = ["harsh-materialplusio"]
   spec.email         = ["harshwardhan.rathore@materialplus.io"]
   spec.summary       = %q{Livestorm API methods for Rails}

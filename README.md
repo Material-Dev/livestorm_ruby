@@ -37,7 +37,7 @@ client = LivestormApi.new(
 Returns [event people](https://api.livestorm.co/v1/events/id/people).
 
 ```ruby
-data = client.get_event_people(livestorm_event_id) # => 
+data = client.get_event_people(livestorm_event_id) # =>
 
 #sample response =>
 {
