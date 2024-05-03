@@ -14,7 +14,7 @@ class LivestormApiPostEventSessionsTest < ActiveSupport::TestCase
         timezone: 'America/New_York'
       }
     }
-    stub_request(:post, "#{LivestormApi::ROOT_URL}/events/livestorm-event-id/sessions").to_return(status: 200, body: @response)
+    stub_request(:post, "#{LivestormApi.root_url}/events/livestorm-event-id/sessions").to_return(status: 200, body: @response)
   end
 
   should 'return successful response' do

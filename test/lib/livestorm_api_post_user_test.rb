@@ -13,7 +13,7 @@ class LivestormApiPostUsertest < ActiveSupport::TestCase
       }
     }
     @response = FactoryBot.create(:livestorm_users_response).to_json
-    stub_request(:post, "#{LivestormApi::ROOT_URL}/users").to_return(status: 200, body: @response)
+    stub_request(:post, "#{LivestormApi.root_url}/users").to_return(status: 200, body: @response)
   end
 
   should "return successful response" do

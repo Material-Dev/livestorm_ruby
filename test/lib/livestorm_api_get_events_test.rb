@@ -10,7 +10,7 @@ class LivestormApiGetEventsTest < ActiveSupport::TestCase
 
   context "without params" do
     setup do
-      stub_request(:get, "#{LivestormApi::ROOT_URL}/events").to_return(status: 200, body: @response)
+      stub_request(:get, "#{LivestormApi.root_url}/events").to_return(status: 200, body: @response)
     end
 
     should "return successful response" do
@@ -30,7 +30,7 @@ class LivestormApiGetEventsTest < ActiveSupport::TestCase
     #
     setup do
       @query_params = {"page[number]" => 1}
-      stub_request(:get, "#{LivestormApi::ROOT_URL}/events").with(query: @query_params).to_return(status: 200)
+      stub_request(:get, "#{LivestormApi.root_url}/events").with(query: @query_params).to_return(status: 200)
     end
 
     should "return successful response" do

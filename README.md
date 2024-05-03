@@ -31,13 +31,18 @@ client = LivestormApi.new(
 )
 ```
 
+## Running tests
+```
+> rake test
+```
+
 
 ### Get Event People
 
 Returns [event people](https://api.livestorm.co/v1/events/id/people).
 
 ```ruby
-data = client.get_event_people(livestorm_event_id) # => 
+data = client.get_event_people(livestorm_event_id) # =>
 
 #sample response =>
 {

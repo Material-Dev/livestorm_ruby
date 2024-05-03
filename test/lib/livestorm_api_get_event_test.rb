@@ -11,7 +11,7 @@ class LivestormApiGetEventTest < ActiveSupport::TestCase
   context "without params" do
     setup do
       @livestorm_event_id = 'some-id'
-      stub_request(:get, "#{LivestormApi::ROOT_URL}/events/#{@livestorm_event_id}").to_return(status: 200, body: @response)
+      stub_request(:get, "#{LivestormApi.root_url}/events/#{@livestorm_event_id}").to_return(status: 200, body: @response)
     end
 
     should "return successful response" do

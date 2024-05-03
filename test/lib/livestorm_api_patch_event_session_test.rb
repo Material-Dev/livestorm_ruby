@@ -7,7 +7,7 @@ class LivestormApiPatchEventSessionTest < ActiveSupport::TestCase
     video_chat_session = FactoryBot.create(:video_chat_session, provider_id: 'provider-id')
     @response = FactoryBot.create(:livestorm_session_response).to_json
     @payload = FactoryBot.create(:video_chat_session_payload, video_chat_session: video_chat_session)
-    stub_request(:patch, "#{LivestormApi::ROOT_URL}/sessions/#{video_chat_session.provider_id}").to_return(status: 200, body: @response)
+    stub_request(:patch, "#{LivestormApi.root_url}/sessions/#{video_chat_session.provider_id}").to_return(status: 200, body: @response)
   end
 
   should 'return successful response' do

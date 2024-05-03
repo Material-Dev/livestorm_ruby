@@ -3,7 +3,7 @@ require_relative "../test_helper"
 
 class LivestormApiDeleteEventSessionTest < ActiveSupport::TestCase
   setup do
-    stub_request(:delete, "#{LivestormApi::ROOT_URL}/sessions/some-id").to_return(status: 204, body: '{}')
+    stub_request(:delete, "#{LivestormApi.root_url}/sessions/some-id").to_return(status: 204, body: '{}')
   end
 
   should "return successful response" do

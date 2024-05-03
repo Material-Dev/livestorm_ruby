@@ -5,7 +5,7 @@ require_relative "../test_helper"
 class LivestormApiGetUsersTest < ActiveSupport::TestCase
   setup do
     @response = FactoryBot.create(:livestorm_users_response).to_json
-    stub_request(:get, "#{LivestormApi::ROOT_URL}/users").to_return(status: 200, body: @response)
+    stub_request(:get, "#{LivestormApi.root_url}/users").to_return(status: 200, body: @response)
   end
 
   should "return successful response" do
@@ -17,7 +17,7 @@ class LivestormApiGetUsersTest < ActiveSupport::TestCase
 
   context 'when filter option is passed' do
     setup do
-      stub_request(:get, "#{LivestormApi::ROOT_URL}/users?filter[role]=host").to_return(status: 200, body: @response)
+      stub_request(:get, "#{LivestormApi.root_url}/users?filter[role]=host").to_return(status: 200, body: @response)
     end
 
     should "return successful response" do
