@@ -17,7 +17,7 @@ class LivestormApiPostRegisterParticipantTest <ActiveSupport::TestCase
       }
     }
     @response = FactoryBot.create(:livestorm_participant).to_json
-    stub_request(:post, "#{LivestormApi::ROOT_URL}/sessions/#{video_chat_session.provider_id}/people").to_return(status: 200, body: @response)
+    stub_request(:post, "#{LivestormApi.root_url}/sessions/#{video_chat_session.provider_id}/people").to_return(status: 200, body: @response)
   end
 
   should 'return successful response' do

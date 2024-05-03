@@ -26,7 +26,7 @@ class LivestormApiPostEventTest < ActiveSupport::TestCase
       }
     }
     @response = FactoryBot.create(:livestorm_events_response).to_json
-    stub_request(:post, "#{LivestormApi::ROOT_URL}/events").to_return(status: 200, body: @response)
+    stub_request(:post, "#{LivestormApi.root_url}/events").to_return(status: 200, body: @response)
   end
 
   should "return successful response" do

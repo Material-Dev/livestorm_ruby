@@ -31,6 +31,11 @@ client = LivestormApi.new(
 )
 ```
 
+## Running tests
+```
+> rake test
+```
+
 
 ### Get Event People
 

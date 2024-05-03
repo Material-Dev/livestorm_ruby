@@ -3,11 +3,11 @@
 require_relative "../test_helper"
 
 
-class LivestormApiGetUsersTest < ActiveSupport::TestCase
+class LivestormApiGetRecordingsTest < ActiveSupport::TestCase
   setup do
     @response = FactoryBot.create(:livestorm_recordings_response).to_json
     @session_id = 'abc'
-    stub_request(:get, "#{LivestormApi::ROOT_URL}/sessions/#{@session_id}/recordings").to_return(status: 200, body: @response)
+    stub_request(:get, "#{LivestormApi.root_url}/sessions/#{@session_id}/recordings").to_return(status: 200, body: @response)
   end
 
   should "return successful response" do

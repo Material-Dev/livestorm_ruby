@@ -2,12 +2,12 @@
 
 require_relative "../test_helper"
 
-class LivestormApiPostRegisterParticipantTest <ActiveSupport::TestCase
+class LivestormApiDeleteSessionPeopleTest <ActiveSupport::TestCase
   setup do
     @response = FactoryBot.create(:livestorm_participant).to_json
     @some_id = 'abc'
     @email = 'some@bodyoncetold.me'
-    stub_request(:delete, "#{LivestormApi::ROOT_URL}/sessions/#{@some_id}/people?filter[email]=#{@email}").to_return(status: 200, body: @response)
+    stub_request(:delete, "#{LivestormApi.root_url}/sessions/#{@some_id}/people?filter[email]=#{@email}").to_return(status: 200, body: @response)
   end
 
   should 'return successful response' do
@@ -17,4 +17,3 @@ class LivestormApiPostRegisterParticipantTest <ActiveSupport::TestCase
     assert_equal(@response, result.body)
   end
 end
-
